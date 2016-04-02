@@ -7,8 +7,13 @@ public class TimerScore : MonoBehaviour {
 	[SerializeField] private FaceScript P1;
 	[SerializeField] private FaceScript P2;
 	[SerializeField] private float maxTime;
+	[SerializeField] private AudioClip ready;
+	[SerializeField] private AudioClip go;
+	[SerializeField] private AudioClip stop;
 	private List<FistScript> fistscripts;
 	private float timer;
+	private bool stopped;
+	private AudioSource speaker;
 
 	// Use this for initialization
 	void Awake () {
@@ -18,18 +23,24 @@ public class TimerScore : MonoBehaviour {
 		{
 			fistscripts.Add (f.GetComponent<FistScript> ());
 		}
+		speaker = GetComponent<AudioSource> ();
 		StartCoroutine (startMatch());
+		StartCoroutine (playStartSounds ());
+		stopped = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		timer -= Time.deltaTime;
-		if (timer <= 0)
+		if (timer <= 0 && !stopped)
 		{
 			foreach (FistScript fist in fistscripts)
 			{
 				fist.SendMessage ("Rest");
 			}
+			stopped = true;
+			speaker.clip = stop;
+			speaker.Play ();
 		}
 		if (timer <= -10) Application.LoadLevel(0);
 	}
@@ -42,6 +53,19 @@ public class TimerScore : MonoBehaviour {
 			fist.SendMessage ("Unlock");
 		}
 		timer = maxTime;
+	}
+
+	IEnumerator playStartSounds()
+	{
+		speaker.clip = ready;
+		speaker.Play ();
+		yield return new WaitForSeconds (1);
+		speaker.Play ();
+		yield return new WaitForSeconds (1);
+		speaker.Play ();
+		yield return new WaitForSeconds (1);
+		speaker.clip = go;
+		speaker.Play ();
 	}
 
 	void OnGUI()

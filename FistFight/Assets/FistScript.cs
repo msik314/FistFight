@@ -7,10 +7,13 @@ public class FistScript : MonoBehaviour {
 	[SerializeField] private float speed;
 	[SerializeField] private float recoil;
 	[SerializeField] private float lockTime;
+	[SerializeField] private AudioClip fistHit;
+	[SerializeField] private AudioClip faceHit;
 	private bool locked;
 	private Rigidbody2D rbody;
 	private Vector3 startPos;
 	private Collider2D hitbox;
+	private AudioSource speaker;
 
 	// Use this for initialization
 	void Awake ()
@@ -18,6 +21,7 @@ public class FistScript : MonoBehaviour {
 		rbody = GetComponent<Rigidbody2D> ();
 		locked = true;
 		startPos = transform.position;
+		speaker = GetComponent<AudioSource> ();
 	}
 
 	void FixedUpdate()
@@ -32,7 +36,12 @@ public class FistScript : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
-		if (col.gameObject.tag == "Face") return;
+		if (col.gameObject.tag == "Face")
+		{
+			speaker.clip = faceHit;
+			speaker.Play ();
+			return;
+		}
 		StartCoroutine (bounce());
 		Vector2 normal = Vector2.zero;
 		int counter = 0;
@@ -43,6 +52,9 @@ public class FistScript : MonoBehaviour {
 		}
 		normal /= counter;
 		rbody.velocity = recoil * normal;
+
+		speaker.clip = fistHit;
+		speaker.Play ();
 	}
 
 	void Rest()
