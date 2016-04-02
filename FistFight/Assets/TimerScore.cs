@@ -31,6 +31,7 @@ public class TimerScore : MonoBehaviour {
 				fist.SendMessage ("Rest");
 			}
 		}
+		if (timer <= -10) Application.LoadLevel(0);
 	}
 
 	IEnumerator startMatch()
@@ -49,5 +50,8 @@ public class TimerScore : MonoBehaviour {
 		GUI.Label (new Rect (Screen.width - 110, 10, 500, 20), "P2 Score: " + P1.getHits ().ToString ());
 		if (timer >= maxTime) GUI.Label (new Rect (Screen.width / 2 - 15, 10, 30, 20), ((int)(timer - maxTime + 1)).ToString());
 		else if (timer >= 0) GUI.Label (new Rect (Screen.width / 2 - 15, 10, 30, 20), ((int)(timer + 1)).ToString());
+		else if (P1.getHits () > P2.getHits ())  GUI.Label (new Rect (Screen.width / 2 - 25, 10, 50, 20), "P2 Wins");
+		else if (P2.getHits () > P1.getHits ())  GUI.Label (new Rect (Screen.width / 2 - 25, 10, 50, 20), "P1 Wins");
+		else GUI.Label (new Rect (Screen.width / 2 - 20, 10, 40, 20), "Draw");
 	}
 }
