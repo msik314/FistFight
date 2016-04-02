@@ -10,9 +10,10 @@ public class FaceScript : MonoBehaviour {
 	}
 
 
-	void OnCollisionEnter2D()
+	void OnCollisionEnter2D(Collision2D col)
 	{
 		++hits;
+		col.gameObject.SendMessage ("reset");
 	}
 
 
