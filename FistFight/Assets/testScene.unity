@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hAxis: VerticalRight
   vAxis: HorizontalRight
-  speed: 4
+  speed: 2
   recoil: 2
   lockTime: 0.25
   fistHit: {fileID: 8300000, guid: bf6de81acf58a4545bfc3bcd6cee55af, type: 3}
@@ -192,7 +192,7 @@ Transform:
   m_GameObject: {fileID: 359997075}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5, y: -1, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -428,7 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hAxis: VerticalLeft
   vAxis: HorizontalLeft
-  speed: 4
+  speed: 2
   recoil: 2
   lockTime: 0.25
   fistHit: {fileID: 8300000, guid: bf6de81acf58a4545bfc3bcd6cee55af, type: 3}
@@ -488,7 +488,7 @@ Transform:
   m_GameObject: {fileID: 521418006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5, y: 1, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -831,7 +831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hAxis: VerticalRight2
   vAxis: HorizontalRight2
-  speed: 4
+  speed: 2
   recoil: 2
   lockTime: 0.25
   fistHit: {fileID: 8300000, guid: bf6de81acf58a4545bfc3bcd6cee55af, type: 3}
@@ -891,7 +891,7 @@ Transform:
   m_GameObject: {fileID: 1608013484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5, y: 1, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1030,7 +1030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hAxis: VerticalLeft2
   vAxis: HorizontalLeft2
-  speed: 4
+  speed: 2
   recoil: 2
   lockTime: 0.25
   fistHit: {fileID: 8300000, guid: bf6de81acf58a4545bfc3bcd6cee55af, type: 3}
@@ -1090,7 +1090,7 @@ Transform:
   m_GameObject: {fileID: 1817873153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5, y: -1, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
